@@ -1,0 +1,47 @@
+export const PROJECTS = [
+  {
+    id: 'job-alert',
+    className: 'proj-card p1 reveal-left',
+    gridColumn: '1/-1',
+    icon: '🚀',
+    badge: 'Featured · Microservices',
+    badgeClass: 'bc',
+    name: 'Microservices-Based Intelligent Job Alert Platform',
+    desc: 'A modular microservices-based job alert platform for aggregation and monitoring, built with Spring Boot, React.js, PostgreSQL, and Docker. The system automates job collection from multiple company career portals via web scraping and API integration. It includes REST APIs, notification services, automated filtering pipelines, and a preference-driven recommendation module — enabling efficient and personalized job discovery through automated aggregation, filtering, and notification workflows.',
+    metrics: [
+      { val: '5+', label: 'Microservices' },
+      { val: 'Real-time', label: 'Notifications' },
+      { val: 'Multi-source', label: 'Aggregation' },
+      { val: 'Dockerised', label: 'Deployment' },
+    ],
+    stack: ['Spring Boot', 'React.js', 'PostgreSQL', 'Docker', 'REST APIs', 'Web Scraping', 'Microservices', 'Notification Service'],
+  },
+  {
+    id: 'soc-automation',
+    className: 'proj-card p2 reveal-right',
+    icon: '🛡️',
+    badge: 'ML · Cybersecurity',
+    badgeClass: 'bp',
+    name: 'SOC Automation — ML & Deception Detection System',
+    desc: 'A security operations automation platform using ML and LLM-RAG-based threat analysis for log processing and response workflows. Implemented context-aware semantic search with a FAISS vector database for efficient threat retrieval. Reduced manual log-review effort through automated filtering, semantic search, and intelligent threat triage pipelines powered by ML and LLM-RAG workflows.',
+    metrics: [
+      { val: 'ML', label: 'Triage pipelines' },
+      { val: 'FAISS', label: 'Vector search' },
+    ],
+    stack: ['Python', 'FastAPI', 'LLM · RAG', 'FAISS', 'ML Pipeline'],
+  },
+  {
+    id: 'hop-internship',
+    className: 'proj-card p3 reveal-left',
+    icon: '💼',
+    badge: 'Internship · HOP Technologies',
+    badgeClass: '',
+    name: 'Full Stack Application Development @ HOP Technologies',
+    desc: 'Built and delivered full stack applications for internal teams using Java Spring Boot, React.js, and PostgreSQL. Designed and integrated RESTful API modules for responsive dashboards and improved internal data workflows. Contributed to technical workshops and presented engineering work at institutional events during the internship.',
+    metrics: [
+      { val: 'Spring', label: 'Boot APIs' },
+      { val: 'React', label: 'Dashboards' },
+    ],
+    stack: ['Spring Boot', 'React.js', 'PostgreSQL', 'REST APIs'],
+  },
+];
