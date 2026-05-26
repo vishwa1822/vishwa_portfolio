@@ -25,11 +25,11 @@ export default function Experience() {
               </div>
               <ul className="tl-bullets">
                 <li>
-                  Developed and delivered <strong>full stack applications</strong> using Java Spring Boot,
+                  Developed and delivered full stack applications using Java Spring Boot,
                   React.js, and PostgreSQL within a collaborative engineering team
                 </li>
                 <li>
-                  Designed and integrated <strong>RESTful API modules</strong> that powered internal
+                  Designed and integrated RESTful API modules that powered internal
                   dashboards and data processing workflows across multiple teams
                 </li>
                 <li>
@@ -51,7 +51,7 @@ export default function Experience() {
               </div>
               <ul className="tl-bullets">
                 <li>
-                  CGPA: <strong>7.1</strong> — Core focus on full stack engineering, distributed systems,
+                  CGPA: 7.1 — Core focus on full stack engineering, distributed systems,
                   and applied AI/ML
                 </li>
                 <li>
@@ -59,34 +59,8 @@ export default function Experience() {
                   ML-powered SOC Automation system
                 </li>
                 <li>
-                  Completed <strong>IBM SkillsBuild Advanced Cyber Security Programme</strong> with a
+                  Completed IBM SkillsBuild Advanced Cyber Security Programme with a
                   distinction grade of A+
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="tl-item reveal" style={{ '--reveal-delay': '0.25s' }}>
-            <div className="tl-dot" style={{ borderColor: 'var(--pink)', boxShadow: 'var(--gk)' }} />
-            <div className="tl-card">
-              <div className="tl-top">
-                <div>
-                  <div className="tl-role">NCC Cadet Under Officer</div>
-                  <div className="tl-company">All India Trek Camp (AITC) 2024 · National Cadet Corps</div>
-                </div>
-                <div className="tl-date">Leadership</div>
-              </div>
-              <ul className="tl-bullets">
-                <li>
-                  Represented the institution at the <strong>All India Trek Camp 2024</strong>, serving as
-                  Cadet Under Officer — recognized for leadership, discipline, and team coordination
-                </li>
-                <li>
-                  Contributed to national-level teamwork, community service, and structured leadership
-                  exercises over an intensive multi-week programme
-                </li>
-                <li>
-                  Competed at the <strong>state level in powerlifting (2021)</strong> — demonstrating
-                  resilience, physical discipline, and a high-performance mindset
                 </li>
               </ul>
             </div>

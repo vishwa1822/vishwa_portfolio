@@ -1,19 +1,14 @@
 export const SKILLS = [
   {
     cat: '// Frontend Engineering',
-    tags: [
-      { label: 'React.js', hot: true },
-      { label: 'HTML5' },
-      { label: 'CSS3' },
-      { label: 'JavaScript' },
-    ],
+    tags: [{ label: 'React.js' }, { label: 'HTML5' }, { label: 'CSS3' }, { label: 'JavaScript' }],
     delay: '0.05s',
   },
   {
     cat: '// Backend Engineering',
     tags: [
-      { label: 'Spring Boot', hot: true },
-      { label: 'Java', hot: true },
+      { label: 'Spring Boot' },
+      { label: 'Java' },
       { label: 'Python' },
       { label: 'FastAPI' },
       { label: 'REST APIs' },
@@ -22,19 +17,14 @@ export const SKILLS = [
   },
   {
     cat: '// Data & Persistence',
-    tags: [
-      { label: 'PostgreSQL', hot: true },
-      { label: 'MySQL' },
-      { label: 'FAISS' },
-      { label: 'SQL' },
-    ],
+    tags: [{ label: 'PostgreSQL' }, { label: 'MySQL' }, { label: 'FAISS' }, { label: 'SQL' }],
     delay: '0.15s',
   },
   {
     cat: '// AI / ML Systems',
     tags: [
-      { label: 'LLM Applications', hot: true },
-      { label: 'RAG Pipelines', hot: true },
+      { label: 'LLM Applications' },
+      { label: 'RAG Pipelines' },
       { label: 'Semantic Search' },
       { label: 'ML Automation' },
     ],
@@ -42,13 +32,7 @@ export const SKILLS = [
   },
   {
     cat: '// DevOps & Tooling',
-    tags: [
-      { label: 'Docker', hot: true },
-      { label: 'Git' },
-      { label: 'GitHub' },
-      { label: 'CLI' },
-      { label: 'Selenium' },
-    ],
+    tags: [{ label: 'Docker' }, { label: 'Git' }, { label: 'GitHub' }, { label: 'CLI' }, { label: 'Selenium' }],
     delay: '0.25s',
   },
   {

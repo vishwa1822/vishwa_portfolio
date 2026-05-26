@@ -22,7 +22,7 @@ export default function Skills() {
               <div className="skill-cat">{skill.cat}</div>
               <div className="skill-tags">
                 {skill.tags.map((tag) => (
-                  <span key={tag.label} className={`skill-tag${tag.hot ? ' hot' : ''}`}>
+                  <span key={tag.label} className="skill-tag">
                     {tag.label}
                   </span>
                 ))}

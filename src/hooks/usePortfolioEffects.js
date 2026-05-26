@@ -97,7 +97,8 @@ export function usePortfolioEffects() {
       };
       resizeStar();
       window.addEventListener('resize', resizeStar);
-      stars = Array.from({ length: 200 }, () => ({
+      const starCount = window.innerWidth <= 768 ? 90 : 200;
+      stars = Array.from({ length: starCount }, () => ({
         x: Math.random() * W,
         y: Math.random() * H,
         r: Math.random() * 1.4 + 0.2,
@@ -128,15 +129,18 @@ export function usePortfolioEffects() {
     }
 
     const cols = ['#a371f7', '#e879a8', '#2ea44f', '#60a5fa', '#8250df', '#22d3ee', '#bf3989'];
+    const isMobile = () => window.innerWidth <= 768;
+    const particleMs = isMobile() ? 1400 : 700;
     const particleInterval = setInterval(() => {
       if (!animActive || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      if (isMobile() && Math.random() > 0.55) return;
       const p = document.createElement('div');
       p.className = 'particle';
       const sz = Math.random() * 4 + 2;
       p.style.cssText = `width:${sz}px;height:${sz}px;background:${cols[Math.floor(Math.random() * cols.length)]};left:${Math.random() * 100}vw;opacity:${Math.random() * 0.45 + 0.15};animation-duration:${Math.random() * 13 + 8}s;animation-delay:${Math.random() * 4}s;`;
       document.body.appendChild(p);
       setTimeout(() => p.remove(), 22000);
-    }, 700);
+    }, particleMs);
 
     const skillCards = document.querySelectorAll('.skill-card');
     const skillHandlers = [];
@@ -202,32 +206,61 @@ export function usePortfolioEffects() {
     }
     document.querySelectorAll('.section-h, .section-label, .contact-h').forEach(wrapLetters);
 
-    const revealSel = '.reveal,.reveal-left,.reveal-right,.reveal-scale,.stagger-parent';
+    function revealDelayMs(el, batchIndex = 0) {
+      const raw =
+        el.dataset.delay ||
+        el.style.getPropertyValue('--reveal-delay') ||
+        getComputedStyle(el).getPropertyValue('--reveal-delay') ||
+        el.style.getPropertyValue('--stagger-delay') ||
+        getComputedStyle(el).getPropertyValue('--stagger-delay');
+      const n = parseFloat(raw);
+      return (Number.isNaN(n) ? 0 : n * 1000) + batchIndex * 50;
+    }
+
+    function markVisible(t, batchIndex = 0) {
+      if (t.classList.contains('visible')) return;
+      setTimeout(() => {
+        t.classList.add('visible');
+        t.querySelectorAll('.section-h,.section-label,.contact-h').forEach((h) => {
+          if (t.contains(h) || t === h) h.classList.add('letters-visible');
+        });
+        if (
+          t.classList.contains('section-h') ||
+          t.classList.contains('section-label') ||
+          t.classList.contains('contact-h')
+        ) {
+          t.classList.add('letters-visible');
+        }
+      }, revealDelayMs(t, batchIndex));
+    }
+
+    const revealSel = '.reveal,.reveal-left,.reveal-right,.reveal-scale,.stagger-parent,.footer-reveal';
+    const ioMargin = isMobile() ? '0px 0px -5px 0px' : '0px 0px -30px 0px';
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((e, i) => {
           if (!e.isIntersecting) return;
-          const t = e.target;
-          const delay = (t.dataset.delay ? parseFloat(t.dataset.delay) * 1000 : 0) + i * 70;
-          setTimeout(() => {
-            t.classList.add('visible');
-            t.querySelectorAll('.section-h,.section-label,.contact-h').forEach((h) => {
-              if (t.contains(h) || t === h) h.classList.add('letters-visible');
-            });
-            if (
-              t.classList.contains('section-h') ||
-              t.classList.contains('section-label') ||
-              t.classList.contains('contact-h')
-            ) {
-              t.classList.add('letters-visible');
-            }
-          }, delay);
-          io.unobserve(t);
+          markVisible(e.target, i);
+          io.unobserve(e.target);
         });
       },
-      { threshold: 0.08, rootMargin: '0px 0px -30px 0px' }
+      { threshold: isMobile() ? 0.05 : 0.08, rootMargin: ioMargin }
     );
     document.querySelectorAll(revealSel).forEach((r) => io.observe(r));
+
+    function checkVisible() {
+      const vh = window.innerHeight;
+      const margin = isMobile() ? 40 : 60;
+      document.querySelectorAll(revealSel).forEach((el, i) => {
+        if (el.classList.contains('visible')) return;
+        const r = el.getBoundingClientRect();
+        if (r.top < vh - margin && r.bottom > margin) markVisible(el, i);
+      });
+    }
+    const onCheckVisible = () => requestAnimationFrame(checkVisible);
+    window.addEventListener('scroll', onCheckVisible, { passive: true });
+    setTimeout(checkVisible, 120);
+    setTimeout(checkVisible, 500);
     document.querySelectorAll('.section-h, .section-label, .contact-h').forEach((h) => {
       if (!h.closest('.reveal') && !h.closest('.reveal-left') && !h.closest('.reveal-right')) {
         io.observe(h);
@@ -245,7 +278,7 @@ export function usePortfolioEffects() {
           }
         });
       },
-      { threshold: 0.15, rootMargin: '0px 0px -20px 0px' }
+      { threshold: isMobile() ? 0.08 : 0.15, rootMargin: isMobile() ? '0px 0px -5px 0px' : '0px 0px -20px 0px' }
     );
     document.querySelectorAll('.section-h, .section-label, .contact-h').forEach((h) => letterIo.observe(h));
 
@@ -295,6 +328,7 @@ export function usePortfolioEffects() {
       clearInterval(particleInterval);
       window.removeEventListener('resize', resizeStar);
       window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('scroll', onCheckVisible);
       skillHandlers.forEach(({ card, handler }) => card.removeEventListener('mousemove', handler));
       demoHandlers.forEach(({ link, prevent }) => link.removeEventListener('click', prevent));
       io.disconnect();

@@ -38,7 +38,7 @@ export default function Hero() {
           </p>
           <p className="hero-desc">
             A dedicated full stack engineer with strong practical experience in{' '}
-            <strong>Java Spring Boot, React.js, and PostgreSQL</strong> — building REST APIs,
+            Java Spring Boot, React.js, and PostgreSQL — building REST APIs,
             modular microservices, and intelligent systems that solve real-world problems with
             efficiency and reliability.
           </p>

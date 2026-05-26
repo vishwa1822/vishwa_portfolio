@@ -38,6 +38,20 @@ Edit `src/data/config.js`:
 - `REPO_URLS` — GitHub repo URLs
 - `CV_FILE` — resume PDF filename (place file in `public/`)
 
+### Contact form (EmailJS)
+
+1. Create a free account at [https://www.emailjs.com/](https://www.emailjs.com/)
+2. Add an email service and a template with variables: `{{user_name}}`, `{{user_email}}`, `{{message}}`
+3. Copy `.env.example` to `.env` and fill in:
+
+```
+VITE_EMAILJS_SERVICE_ID=...
+VITE_EMAILJS_TEMPLATE_ID=...
+VITE_EMAILJS_PUBLIC_KEY=...
+```
+
+4. Restart the dev server (`npm run dev`)
+
 ## Project structure
 
 ```

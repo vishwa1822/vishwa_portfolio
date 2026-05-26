@@ -5,31 +5,30 @@ export default function About() {
         <div className="reveal">
           <p className="section-label">Who I Am</p>
           <h2 className="section-h">
-            Engineering solutions that <br />
+            Engineering solutions that
+            <br />
             <span className="g-pp">work and deliver.</span>
           </h2>
         </div>
         <div className="about-grid stagger-parent reveal">
           <div className="about-text stagger-child" style={{ '--stagger-delay': '0.1s' }}>
             <p>
-              I am a <strong>Computer Science graduate (Class of 2026)</strong> from AVC College of
+              I am a Computer Science graduate (Class of 2026) from AVC College of
               Engineering, specializing in full stack development, backend systems, and AI-powered
               applications. My academic foundation is reinforced by practical software engineering
               across every project I undertake.
             </p>
             <p>
-              I have built everything from <strong>microservices-based job intelligence platforms</strong>{' '}
+              I have built everything from microservices-based job intelligence platforms{' '}
               to ML-driven security operations pipelines — with a focus on clean architecture, reliable
               APIs, and measurable outcomes.
             </p>
             <p>
-              <strong>
-                Interested in backend engineering, scalable systems, automation, and intelligent
-                platform development.
-              </strong>
+              Interested in backend engineering, scalable systems, automation, and intelligent
+              platform development.
             </p>
             <p>
-              Outside engineering, I am a <strong>state-level powerlifter</strong> and served as an NCC
+              Outside engineering, I am a state-level powerlifter and served as an NCC
               Cadet Under Officer at the All India Trek Camp 2024 — experiences that have strengthened
               my discipline and collaborative instincts. I bring the same focus to code that I bring to
               sport.
