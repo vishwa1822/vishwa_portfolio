@@ -1,31 +1,38 @@
 export const ACHIEVEMENTS = [
   {
+    id: 'ncc-aitc',
+    className: 'proj-card p1 reveal-left',
+    gridColumn: '1/-1',
     icon: '🎖️',
-    title: 'NCC Cadet Under Officer',
-    meta: 'AITC 2024 · Leadership',
-    description:
-      'Represented AVC College of Engineering at the All India Trek Camp 2024, serving as Cadet Under Officer — a role that demanded discipline, team coordination, and composure under structured national-level training.',
+    badge: 'AITC 2024 · Leadership',
+    badgeClass: 'bc',
+    name: 'NCC Cadet Under Officer',
+    desc: 'Represented AVC College of Engineering at the All India Trek Camp 2024, serving as Cadet Under Officer — a role that demanded discipline, team coordination, and composure under structured national-level training.',
     bullets: [
       'Recognized for leadership, discipline, and team coordination throughout the intensive multi-week programme',
       'Contributed to national-level teamwork, community service, and structured leadership exercises alongside cadets from institutions across India',
       'Built habits of accountability and clear communication that translate directly into collaborative software engineering',
     ],
-    delay: '0.05s',
+    tags: ['Leadership', 'National Camp', 'NCC'],
   },
   {
+    id: 'powerlifting',
+    className: 'proj-card p2 reveal-right',
     icon: '🏋️',
-    title: 'State-Level Powerlifting',
-    meta: '2021',
-    description:
-      'Competed at the state level — demonstrating resilience, physical discipline, and a high-performance mindset beyond the classroom.',
-    delay: '0.12s',
+    badge: '2021 · Athletics',
+    badgeClass: 'bp',
+    name: 'State-Level Powerlifting',
+    desc: 'Competed at the state level — demonstrating resilience, physical discipline, and a high-performance mindset beyond the classroom.',
+    tags: ['State Level', 'Discipline', 'Performance'],
   },
   {
+    id: 'technical-growth',
+    className: 'proj-card p3 reveal-left',
     icon: '📢',
-    title: 'Technical Papers & Active Problem Solving',
-    meta: 'Continuous Growth',
-    description:
-      'Presented engineering papers and participated in technical workshops at institutional events, while maintaining consistent DSA practice on LeetCode (Vishwa041822) alongside full stack project work.',
-    delay: '0.19s',
+    badge: 'Continuous Growth',
+    badgeClass: '',
+    name: 'Technical Papers & Active Problem Solving',
+    desc: 'Presented engineering papers and participated in technical workshops at institutional events, while maintaining consistent DSA practice on LeetCode alongside full stack project work.',
+    tags: ['LeetCode', 'Technical Papers', 'Workshops'],
   },
 ];

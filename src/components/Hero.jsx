@@ -1,10 +1,7 @@
-import { useTypedText } from '../hooks/useTypedText';
 import { downloadCV } from '../utils/downloadCV';
 import { CV_FILE } from '../data/config';
 
 export default function Hero() {
-  const typed = useTypedText();
-
   return (
     <section id="hero">
       <div className="hero-inner">
@@ -30,12 +27,6 @@ export default function Hero() {
             </span>
           </h1>
           <p className="hero-post">Software Engineer · Full Stack &amp; Backend Developer</p>
-          <p className="hero-role">
-            // <span className="typed">{typed}</span>
-            <span className="typed-cursor" style={{ animation: 'blink 1s infinite' }}>
-              |
-            </span>
-          </p>
           <p className="hero-desc">
             A dedicated full stack engineer with strong practical experience in{' '}
             Java Spring Boot, React.js, and PostgreSQL — building REST APIs,

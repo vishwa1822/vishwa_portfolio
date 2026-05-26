@@ -6,6 +6,12 @@ export const CERTIFICATIONS = [
     badge: null,
   },
   {
+    icon: '🛡️',
+    name: 'Deloitte — Cyber Job Simulation',
+    issuer: 'Forage · Certificate of Completion · March 25, 2026 · Cyber Security',
+    badge: null,
+  },
+  {
     icon: '🤖',
     name: 'Advanced Course on Green Skills & Artificial Intelligence',
     issuer: 'AICTE Skills4Future Program · Edunet Foundation & Shell India',

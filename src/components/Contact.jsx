@@ -163,7 +163,8 @@ export default function Contact() {
           {error ? <p className="form-error">{error}</p> : null}
           {!isEmailJsConfigured() && !error ? (
             <p className="form-hint">
-              Tip: add EmailJS keys in <code>.env</code> to send from the site without opening your mail app.
+              Sending via your email app. For in-browser send, add keys to <code>.env</code> (local) or host env vars, then{' '}
+              <code>npm run build</code> and redeploy.
             </p>
           ) : null}
           <div className="form-success" id="formSuccess" style={{ display: showSuccess ? 'block' : 'none' }} role="status">

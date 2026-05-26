@@ -68,8 +68,8 @@ export default function Experience() {
         </div>
         <div style={{ marginTop: '3rem' }} className="reveal">
           <p className="section-label">Certifications</p>
-          {CERTIFICATIONS.map((cert) => (
-            <div key={cert.name} className="cert-card">
+          {CERTIFICATIONS.map((cert, i) => (
+            <div key={cert.name} className="cert-card reveal" style={{ '--reveal-delay': `${0.05 + i * 0.08}s` }}>
               <div className="cert-logo">{cert.icon}</div>
               <div>
                 <div className="cert-name">{cert.name}</div>

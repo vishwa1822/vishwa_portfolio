@@ -40,17 +40,22 @@ Edit `src/data/config.js`:
 
 ### Contact form (EmailJS)
 
+`.env` is **gitignored on purpose** — your keys are not pushed to GitHub. That is correct and safe.
+
 1. Create a free account at [https://www.emailjs.com/](https://www.emailjs.com/)
 2. Add an email service and a template with variables: `{{user_name}}`, `{{user_email}}`, `{{message}}`
-3. Copy `.env.example` to `.env` and fill in:
+3. Copy `.env.example` to `.env` and paste your three keys (you already have these locally).
+4. Restart the dev server: `npm run dev`
 
-```
-VITE_EMAILJS_SERVICE_ID=...
-VITE_EMAILJS_TEMPLATE_ID=...
-VITE_EMAILJS_PUBLIC_KEY=...
-```
+**After deploy (so EmailJS still works without `.env` on the server):**
 
-4. Restart the dev server (`npm run dev`)
+| Method | What to do |
+|--------|------------|
+| **Easiest** | Run `npm run build` on your machine **while `.env` exists**, then deploy the `dist/` folder. Vite embeds the keys into the built JS. |
+| **Vercel / Netlify** | Add `VITE_EMAILJS_SERVICE_ID`, `VITE_EMAILJS_TEMPLATE_ID`, `VITE_EMAILJS_PUBLIC_KEY` in the host’s Environment Variables, then trigger a new deploy. |
+| **Fallback** | If keys are missing at build time, **Send Message** opens the visitor’s mail app with your address pre-filled (no setup on the server). |
+
+Run `npm run build` — you’ll see `✓ EmailJS env ready` if `.env` is set up correctly.
 
 ## Project structure
 

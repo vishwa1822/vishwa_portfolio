@@ -12,25 +12,34 @@ export default function Achievements() {
             <span className="g-po">the codebase.</span>
           </h2>
         </div>
-        <div className="achievements-grid stagger-parent reveal">
-          {ACHIEVEMENTS.map((item) => (
+        <div className="projects-grid">
+          {ACHIEVEMENTS.map((a) => (
             <div
-              key={item.title}
-              className="ach-card stagger-child reveal-scale"
-              style={{ '--stagger-delay': item.delay }}
+              key={a.id}
+              className={a.className}
+              style={a.gridColumn ? { gridColumn: a.gridColumn } : undefined}
             >
-              <div className="ach-top">
-                <span className="ach-icon">{item.icon}</span>
-                <span className="ach-meta">{item.meta}</span>
+              <div className="proj-top">
+                <div className="proj-icon">{a.icon}</div>
+                <span className={`proj-badge ${a.badgeClass}`.trim()}>{a.badge}</span>
               </div>
-              <div className="ach-title">{item.title}</div>
-              <p className="ach-desc">{item.description}</p>
-              {item.bullets ? (
-                <ul className="tl-bullets ach-bullets">
-                  {item.bullets.map((point) => (
+              <div className="proj-name">{a.name}</div>
+              <div className="proj-desc">{a.desc}</div>
+              {a.bullets ? (
+                <ul className="tl-bullets" style={{ marginTop: '1rem' }}>
+                  {a.bullets.map((point) => (
                     <li key={point}>{point}</li>
                   ))}
                 </ul>
+              ) : null}
+              {a.tags ? (
+                <div className="proj-stack">
+                  {a.tags.map((tag) => (
+                    <span key={tag} className="stag">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               ) : null}
             </div>
           ))}
